@@ -18,9 +18,9 @@ WORKDIR "/application"
 
 # RUN add-apt-repository ppa:ondrej/php
 
-RUN apt update
+RUN apt update -y
 
-RUN apt upgrade
+RUN apt upgrade -y
 
 RUN apt install -y git
 
