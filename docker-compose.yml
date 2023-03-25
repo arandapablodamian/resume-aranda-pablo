@@ -32,7 +32,7 @@ services:
           - ./docker/certbot/conf/:/etc/nginx/ssl/
       ports:
        - "80:80"
-       - "8343:443"
+      #  - "8343:443"
     
     certbot:
       image: certbot/certbot:latest
