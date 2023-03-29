@@ -29,7 +29,7 @@ services:
           - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
           - ./docker/nginx/certificates/ca_bundle.crt:/etc/nginx/ssl/ca_bundle.crt
           - ./docker/nginx/certificates/certificate.crt:/etc/nginx/ssl/certificate.crt
-          - ./docker/nginx/certificates/private.crt:/etc/nginx/ssl/private.crt
+          - ./docker/nginx/certificates/private.key:/etc/nginx/ssl/private.key
           # - ./docker/certbot/www:/var/www/certbot/
           # - ./docker/certbot/conf/:/etc/nginx/ssl/
       ports:
