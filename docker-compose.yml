@@ -27,18 +27,20 @@ services:
       volumes:
           - .:/application
           - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-          - ./docker/nginx/certificates:/etc/ssl/
-          - ./docker/certbot/www:/var/www/certbot/
-          - ./docker/certbot/conf/:/etc/nginx/ssl/
+          - ./docker/nginx/certificates/ca_bundle.crt:/etc/ssl/ca_bundle.crt
+          - ./docker/nginx/certificates/certificate.crt:/etc/ssl/certificate.crt
+          - ./docker/nginx/certificates/private.crt:/etc/ssl/private.crt
+          # - ./docker/certbot/www:/var/www/certbot/
+          # - ./docker/certbot/conf/:/etc/nginx/ssl/
       ports:
        - "80:80"
-      #  - "8343:443"
+       - "443:443"
     
-    certbot:
-      image: certbot/certbot:latest
-      volumes:
-        - ./docker/certbot/www/:/var/www/certbot/
-        - ./docker/certbot/conf/:/etc/letsencrypt/
+    # certbot:
+    #   image: certbot/certbot:latest
+    #   volumes:
+    #     - ./docker/certbot/www/:/var/www/certbot/
+    #     - ./docker/certbot/conf/:/etc/letsencrypt/
 
     php-fpm:
       build: docker/php-fpm
